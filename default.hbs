@@ -23,8 +23,9 @@
           fetchpriority="high">
     {{/if}}{{/post}}{{/is}}
 
-    {{!-- Ghost's meta_title: post/page SEO title or title, author and tag names, Settings > meta title on home --}}
-    {{#is "post, page"}}<title>{{meta_title}} - {{@site.title}}</title>{{else}}<title>{{meta_title}}</title>{{/is}}
+    {{!-- Ghost's meta_title: post/page SEO title (or title), author and tag names, Settings > meta title on home.
+         No " - WizLeads" suffix on posts: it pushed most titles past 60 characters, and Google shows the site name separately. --}}
+    <title>{{meta_title}}</title>
 
     {{!-- Theme stylesheet --}}
     <link rel="stylesheet" href="{{asset "css/screen.css"}}">
