@@ -270,3 +270,29 @@
     });
 
 })();
+
+/* Mid-article signup box (partials/post-cta.hbs): move it before the middle H2 on posts with 4+ H2s,
+   and keep ?ref= attribution: write the post slug into the wl_source cookie the main site reads. */
+(function () {
+    var box = document.querySelector('[data-cta-mid]');
+    var content = document.querySelector('[data-content]');
+    if (box && content) {
+        var heads = Array.prototype.filter.call(content.children, function (el) { return el.tagName === 'H2'; });
+        if (heads.length >= 4) {
+            content.insertBefore(box, heads[Math.floor(heads.length / 2)]);
+            box.classList.add('is-placed');
+        }
+    }
+    document.addEventListener('click', function (e) {
+        var a = e.target.closest ? e.target.closest('a[data-wl-ref]') : null;
+        if (!a) return;
+        var tag = a.getAttribute('data-wl-ref');
+        if (!tag) return;
+        var m = document.cookie.match(/(?:^|; )wl_source=([^;]*)/);
+        var existing = m ? decodeURIComponent(m[1]) : '';
+        if (existing.indexOf(tag + '|') !== -1) return;
+        var updated = (existing + tag + '|').slice(-1000);
+        var exp = new Date(); exp.setDate(exp.getDate() + 60);
+        document.cookie = 'wl_source=' + encodeURIComponent(updated) + '; expires=' + exp.toUTCString() + '; path=/; domain=.wizleads.io';
+    });
+})();

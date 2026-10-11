@@ -1,0 +1,16 @@
+{{!-- Mid-article signup box, phones and tablets only (CSS shows it at 860px and below, where the
+     sidebar banner drops under the article). theme.js moves it before the middle H2 on posts with
+     4+ H2s and records the post slug in the wl_source cookie on click, like the main site's ?ref= tracking. --}}
+<aside class="wl-cta" data-cta-mid aria-label="Try WizLeads">
+    {{#has tag="LinkedIn Scraping"}}
+    <span class="wl-cta-title">Pulling leads out of Sales Navigator?</span>
+    <span class="wl-cta-text">WizLeads scrapes your searches, then finds and verifies the work emails. Your first 500 credits are free.</span>
+    {{else}}{{#has tag="Email Verification,Email Enrichment,Email Finder,Catch-All,Bounce Rate,Deliverability,Cold Email"}}
+    <span class="wl-cta-title">Finding or verifying work emails?</span>
+    <span class="wl-cta-text">WizLeads finds work emails and verifies them, including catch-all addresses. Your first 500 credits are free.</span>
+    {{else}}
+    <span class="wl-cta-title">Pulling leads out of Sales Navigator?</span>
+    <span class="wl-cta-text">WizLeads scrapes your searches, then finds and verifies the work emails. Your first 500 credits are free.</span>
+    {{/has}}{{/has}}
+    <a class="wl-cta-btn" href="https://app.wizleads.io/register" data-wl-ref="{{slug}}">Get 500 free credits <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</aside>
