@@ -12,6 +12,8 @@
     <link rel="icon" href="{{asset "icons/favicon.svg"}}" type="image/svg+xml">
     <link rel="apple-touch-icon" href="{{asset "icons/apple-touch-icon.png"}}">
 
+    <link rel="preload" href="{{asset "fonts/dm-sans-normal-latin.woff2"}}" as="font" type="font/woff2" crossorigin>
+
     {{!-- Preload feature image on single posts (LCP optimization) --}}
     {{#is "post"}}{{#post}}{{#if feature_image}}
     <link rel="preload" as="image"
