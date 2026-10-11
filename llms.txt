@@ -6,9 +6,43 @@
 
 WizLeads is the all-in-one B2B lead generation tool. Scrape LinkedIn Sales Navigator, find verified business emails, and verify in bulk. This blog covers outbound sales strategies, email deliverability, lead enrichment workflows, and product updates.
 
-## Recent Articles
+## Research
 
-<!-- Auto-generate this section from /ghost/api/content/posts via a scheduled task -->
+Original benchmarks run by WizLeads. Each tool was tested on the same data set.
+
+- [Email Enrichment Benchmark 2026: 7 Email Finders, 1,000 B2B Leads](https://wizleads.io/blog/email-enrichment-benchmark-2026/): WizLeads delivered 670 verified-valid emails out of 1,000 leads – the highest count in the test, with zero invalids on verify.
+- [Email Verification Benchmark 2026: 6 Tools, 1,000 Emails](https://wizleads.io/blog/email-verification-benchmark-2026/): We tested WizLeads, ZeroBounce, LeadMagic, NeverBounce, MillionVerifier and Debounce on 1,000 B2B emails.
+
+## Articles
+
+Newest first.
+
+- [Email Bouncer: What It Is and How to Check Before You Send](https://wizleads.io/blog/email-bouncer/): An email bouncer checks whether addresses will bounce before you send.
+- [12 Apollo Alternatives by Use Case (2026, With Test Data)](https://wizleads.io/blog/apollo-alternatives/): 12 Apollo alternatives organized by the job you hired Apollo for: database, enrichment, or sequencing.
+- [Best Email Verification Tools 2026, Ranked by Real Bounce Data](https://wizleads.io/blog/best-email-verification-tools/): I ran 1,000 real B2B emails through 6 verification tools, then actually sent to them.
+- [10 Clearbit Alternatives Now That It's HubSpot Breeze (2026)](https://wizleads.io/blog/clearbit-alternatives/): Clearbit is now HubSpot's Breeze Intelligence and the standalone product is sunset.
+- [Apollo Email Finder Review 2026: Accuracy, Credits and Real Cost](https://wizleads.io/blog/apollo-email-finder/): Apollo's email finder page claims 98% accuracy.
+- [Reverse Email Lookup: What Free Actually Returns](https://wizleads.io/blog/reverse-email-lookup/): Reverse email lookup free tools tested against their own pricing pages: what each returns without payment, where the paywall sits, and what a B2B address needs.
+- [Email Lookup: How to Find a Work Email Address (2026)](https://wizleads.io/blog/email-lookup/): Email lookup runs two opposite jobs.
+- [Email Hippo Verifier: Review, Pricing, and 8 Alternatives](https://wizleads.io/blog/hippo-alternatives/): Email Hippo verifier reviewed: how it works, real pricing (from $9.88/mo, ~$88 per 10K), where it fits, and 8 alternatives with send-tested accuracy data.
+- [5 ZeroBounce Alternatives Tested on the Same 1,000 Emails](https://wizleads.io/blog/zerobounce-alternatives/): We ran 1,000 real B2B emails through ZeroBounce and 5 alternatives, then actually sent to them.
+- [Catch-All Email Verification: How to Verify the Unverifiable](https://wizleads.io/blog/catch-all-email-verification/): Catch-all email verification explained: why standard SMTP checks fail, how tools actually resolve catch-all domains, and real bounce data from a 1,000-email test.
+- [LinkedIn Company Scraper: Extract Company Data at Scale (2026)](https://wizleads.io/blog/linkedin-company-scraper/): What a LinkedIn company page really returns, the 1,000-result account search cap, and what 1,000 company records cost across nine routes.
+- [Free LinkedIn Scrapers: What Works and What It Costs You](https://wizleads.io/blog/free-linkedin-scraper/): Every free LinkedIn scraper worth trying, checked on the vendor's own page today.
+- [LinkedIn Profile Scraper: How They Work and What 1,000 Profiles Cost](https://wizleads.io/blog/linkedin-profile-scraper/): What a logged-out LinkedIn profile actually returns, why scraping it costs money, and eight profile scrapers priced per 1,000 URLs off their own pages.
+- [Best LinkedIn Sales Navigator Scrapers 2026 (Tested)](https://wizleads.io/blog/best-sales-navigator-scrapers/): Eight Sales Navigator scrapers ranked on account exposure and real cost per 1,000 leads.
+- [LinkedIn Scraping in 2026: The Mechanics, the Limits, and the Law](https://wizleads.io/blog/linkedin-scraping-guide/): How LinkedIn scraping works: what a scraper can read, what hiQ v LinkedIn actually decided, the 2,500-result cap, and why the email is never on the profile.
+- [LinkedIn Email Scraper: How Work Emails Actually Get Found (2026)](https://wizleads.io/blog/linkedin-email-scraper/): LinkedIn profiles carry no work email field.
+- [Skrapp.io Review 2026: Pricing, Accuracy and 8 Alternatives](https://wizleads.io/blog/skrapp-review/): What Skrapp.io costs, how its 92% accuracy claim holds up against a third-party test, and eight alternatives priced off their own pages on 8 September 2026.
+- [12 Best LinkedIn Scrapers in 2026, Ranked by Ban Risk and Cost](https://wizleads.io/blog/best-linkedin-scrapers/): 12 LinkedIn scrapers compared on account exposure, the 2,500 cap, email quality and cost.
+- [ZeroBounce vs NeverBounce: Tested on the Same 1,000 Emails](https://wizleads.io/blog/zerobounce-vs-neverbounce/): ZeroBounce vs NeverBounce compared with real send-test data: 1,000 identical emails, actual bounce rates, pricing, catch-all handling, and which to pick.
+- [Best Email Verification APIs for Developers (2026)](https://wizleads.io/blog/best-email-verification-apis/): 6 email verification APIs compared for developers: accuracy from a real 1,000-email test, billing models, response schemas, webhooks, and integration notes.
+- [LinkedIn Premium Cost in 2026: Every Plan, Verified](https://wizleads.io/blog/linkedin-premium-cost/): LinkedIn Premium costs $39.99 to $99.99/mo in 2026: Career $39.99, Business $69.99, All-in-One $89.99.
+- [How to Export Leads From LinkedIn Sales Navigator (2026)](https://wizleads.io/blog/export-leads-from-sales-navigator/): Sales Navigator has no export button.
+- [9 Best Evaboot Alternatives for Sales Nav Scraping (2026)](https://wizleads.io/blog/evaboot-alternatives/): Nine Sales Navigator scrapers compared on account risk, the 2,500 cap, email quality and real cost.
+- [LinkedIn Sales Navigator Cost in 2026: Every Plan Priced](https://wizleads.io/blog/linkedin-sales-navigator-cost/): Sales Navigator Core is $119.99/mo, Advanced $159.99/mo in 2026.
+- [LinkedIn Sales Navigator vs Premium: Which Do You Need?](https://wizleads.io/blog/sales-navigator-vs-premium/): Sales Navigator ($119.99/mo) vs LinkedIn Premium Business ($69.99/mo) compared: features, pricing, and who each is for.
+- [Sales Navigator Export Limits: The 2,500 Cap Explained](https://wizleads.io/blog/sales-navigator-export-limits/): Sales Navigator caps every search at 2,500 visible results (1,000 for companies).
 
 ## Authors
 
