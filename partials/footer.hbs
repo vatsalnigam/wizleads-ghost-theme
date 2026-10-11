@@ -4,7 +4,7 @@
             <div class="footer-brand">
                 <a href="{{@site.url}}" class="footer-logo">
                     {{#if @site.logo}}
-                    <img src="{{@site.logo}}" alt="{{@site.title}}" width="28" height="28">
+                    <img src="{{img_url @site.logo size="xs" format="webp"}}" alt="{{@site.title}}" width="28" height="28" loading="lazy" decoding="async">
                     {{else}}
                     <img src="{{asset "icons/favicon.svg"}}" alt="{{@site.title}}" width="28" height="28">
                     {{/if}}
