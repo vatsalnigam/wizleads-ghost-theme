@@ -30,6 +30,8 @@
     <link rel="stylesheet" href="{{asset "css/screen.css"}}">
 
     {{ghost_head}}
+    {{!-- BreadcrumbList for posts: WizLeads > Blog > primary tag > post. {{title}} stays HTML-escaped so a quote in a title cannot break the JSON. --}}
+    {{#is "post"}}{{#post}}<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"WizLeads","item":"https://wizleads.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"{{@site.url}}/"},{{#if primary_tag}}{{#primary_tag}}{"@type":"ListItem","position":3,"name":"{{name}}","item":"{{url absolute="true"}}"},{{/primary_tag}}{"@type":"ListItem","position":4,"name":"{{title}}","item":"{{url absolute="true"}}"}{{else}}{"@type":"ListItem","position":3,"name":"{{title}}","item":"{{url absolute="true"}}"}{{/if}}]}</script>{{/post}}{{/is}}
 </head>
 
 <body class="{{body_class}}">
