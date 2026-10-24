@@ -1314,6 +1314,16 @@ main, #main { padding-top: 80px; }
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
+/* Editor images sit in a fixed 16:9 frame. A 16:9 upload fills it exactly;
+   anything else is letterboxed on white rather than cropped, so no content
+   is ever lost and every article image lines up at the same height. */
+.post-content .kg-image-card img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    background: #ffffff;
+}
+
 /* Figures already space themselves, so the image inside must not add its own
    margin on top of that (it was doubling the gap to 64px) */
 .post-content figure img,
