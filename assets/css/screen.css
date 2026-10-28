@@ -1260,6 +1260,13 @@ main, #main { padding-top: 80px; }
     color: inherit;
 }
 
+/* The content column is a grid item, so the first element's top margin is not
+   collapsed away and pushes the article down out of line with the TOC and
+   banner rails. Nearly every post opens with an h2 (TL;DR). */
+.post-content > :first-child {
+    margin-top: 0;
+}
+
 /* --- Headings inside post content --- */
 .post-content h2 {
     font-size: 26px;
