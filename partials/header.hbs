@@ -1,34 +1,49 @@
-<header class="floating-header" data-site-header>
-    <a class="fh-logo" href="https://wizleads.io">
-        <img src="{{asset "icons/favicon.svg"}}" alt="WizLeads" width="26" height="26">
-        WizLeads
-    </a>
-    <nav class="fh-nav" data-nav aria-label="Main navigation">
-        <div class="fh-dropdown">
-            <button class="fh-dropdown-trigger">Products <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg></button>
-            <div class="fh-dropdown-menu">
-                <a href="https://wizleads.io/sales-navigator">LinkedIn Sales Navigator Scraper</a>
-                <a href="https://wizleads.io/email-enrichment">Email Enrichment</a>
-                <a href="https://wizleads.io/email-verification">Email Verification</a>
-            </div>
-        </div>
-        <a href="https://wizleads.io/#features">Features</a>
-        <a href="https://wizleads.io/#how-it-works">How It Works</a>
-        <a href="https://wizleads.io/api">API</a>
-        <a href="https://wizleads.io/#pricing">Pricing</a>
-        <a href="https://wizleads.io/blog">Blog</a>
-    </nav>
-    <div class="fh-actions">
-        <a href="https://app.wizleads.io/login" class="fh-login">Log in</a>
-        <a href="https://app.wizleads.io/register" class="fh-cta">Get Started</a>
+<div class="fh-wrap">
+    {{!-- Offer band, same as the landing page header. Closing it is remembered in
+          localStorage ('wl_offer_bf_closed'), shared with wizleads.io; the head script
+          in default.hbs hides it before first paint for returning visitors. --}}
+    <div class="promo-ribbon">
+        <a class="promo-ribbon-link" href="https://app.wizleads.io/register">
+            <span class="promo-ribbon-tag">Black Friday</span>
+            <span class="promo-ribbon-long">Try WizLeads: </span><span class="promo-ribbon-get">Get </span><strong>10,000 credits for $1</strong><span class="promo-ribbon-cta"><span class="promo-ribbon-cta-text">Sign Up</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </a>
+        <button class="promo-ribbon-close" type="button" data-ribbon-close aria-label="Close offer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
     </div>
-    <a href="https://app.wizleads.io/register" class="fh-mobile-cta">Get Started</a>
-    <button type="button" class="fh-mobile-btn" data-nav-toggle aria-label="Menu">
-        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-    </button>
-</header>
+    <header class="floating-header" data-site-header>
+        <a class="fh-logo" href="https://wizleads.io">
+            <img src="{{asset "icons/favicon.svg"}}" alt="WizLeads" width="26" height="26">
+            WizLeads
+        </a>
+        <nav class="fh-nav" data-nav aria-label="Main navigation">
+            <div class="fh-dropdown">
+                <button class="fh-dropdown-trigger">Products <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg></button>
+                <div class="fh-dropdown-menu">
+                    <a href="https://wizleads.io/sales-navigator-scraper">LinkedIn Sales Navigator Scraper</a>
+                    <a href="https://wizleads.io/email-enrichment">Email Enrichment</a>
+                    <a href="https://wizleads.io/email-verification">Email Verification</a>
+                </div>
+            </div>
+            <a href="https://wizleads.io/#features">Features</a>
+            <a href="https://wizleads.io/#how-it-works">How It Works</a>
+            <a href="https://wizleads.io/api">API</a>
+            <a href="https://wizleads.io/#pricing">Pricing</a>
+            <a href="https://wizleads.io/blog">Blog</a>
+            <a href="https://wizleads.io/creators-program" class="fh-creators">🎁 Creators Program</a>
+        </nav>
+        <div class="fh-actions">
+            <a href="https://app.wizleads.io/login" class="fh-login">Log in</a>
+            <a href="https://app.wizleads.io/register" class="fh-cta">Get Started</a>
+        </div>
+        <a href="https://app.wizleads.io/register" class="fh-mobile-cta">Get Started</a>
+        <button type="button" class="fh-mobile-btn" data-nav-toggle aria-label="Menu">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+    </header>
+</div>
 <div class="fh-mobile-menu" data-mobile-menu>
-    <a href="https://wizleads.io/sales-navigator">LinkedIn Sales Navigator Scraper</a>
+    <a href="https://wizleads.io/sales-navigator-scraper">LinkedIn Sales Navigator Scraper</a>
     <a href="https://wizleads.io/email-enrichment">Email Enrichment</a>
     <a href="https://wizleads.io/email-verification">Email Verification</a>
     <a href="https://wizleads.io/#features">Features</a>
@@ -36,6 +51,7 @@
     <a href="https://wizleads.io/api">API</a>
     <a href="https://wizleads.io/#pricing">Pricing</a>
     <a href="https://wizleads.io/blog">Blog</a>
+    <a href="https://wizleads.io/creators-program" class="fh-creators">🎁 Creators Program</a>
     <div class="fh-mobile-actions">
         <a href="https://app.wizleads.io/login" class="fh-login">Log in</a>
         <a href="https://app.wizleads.io/register" class="fh-cta">Get Started</a>

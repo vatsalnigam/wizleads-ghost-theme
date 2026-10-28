@@ -432,6 +432,49 @@ main, #main { padding-top: 80px; }
     }
 }
 
+/* Offer band on top of the pill, same as the landing page header. The band and the
+   pill share .fh-wrap; while the band shows they read as one rounded card. */
+.fh-wrap { position: absolute; top: 16px; left: 50%; transform: translateX(-50%); z-index: 1000; }
+.fh-wrap .floating-header { position: static; transform: none; }
+/* no overflow:hidden on the wrap, it would clip the Products dropdown */
+html:not(.ribbon-closed) .fh-wrap { background: #ffffff; border-radius: 26px; border: 1px solid rgba(0, 0, 0, 0.06); box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04); }
+html:not(.ribbon-closed) .fh-wrap .promo-ribbon { border-radius: 25px 25px 0 0; }
+html:not(.ribbon-closed) .fh-wrap .floating-header { border: none; box-shadow: none; border-radius: 0 0 25px 25px; }
+.promo-ribbon { position: relative; display: flex; align-items: center; justify-content: center; height: 28px; padding: 0 40px; background: var(--purple); color: #ffffff; font-size: 0.8125rem; }
+.promo-ribbon-link { display: inline-flex; align-items: center; gap: 4px; color: #ffffff; text-decoration: none; white-space: nowrap; }
+.promo-ribbon-link strong { font-weight: 700; margin-left: 3px; }
+.promo-ribbon-tag { display: inline-flex; align-items: center; height: 18px; padding: 0 6px; margin-right: 4px; border-radius: 4px; background: #111111; color: #ffffff; font-size: 0.625rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.promo-ribbon-cta { display: inline-flex; align-items: center; gap: 4px; margin-left: 10px; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.promo-ribbon-cta svg { transition: transform 0.15s; }
+.promo-ribbon-link:hover .promo-ribbon-cta svg { transform: translateX(3px); }
+.promo-ribbon-close { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: flex; padding: 4px; background: none; border: none; color: rgba(255, 255, 255, 0.75); cursor: pointer; }
+.promo-ribbon-close:hover { color: #ffffff; }
+.fh-nav a.fh-creators, .fh-mobile-menu a.fh-creators { font-weight: 700; }
+/* while the band shows, everything under the header moves down by its 28px */
+html:not(.ribbon-closed) main,
+html:not(.ribbon-closed) #main { padding-top: 108px; }
+html:not(.ribbon-closed) .post-hero-section { margin-top: -108px; padding-top: 148px; }
+html:not(.ribbon-closed) .fh-mobile-menu { top: 100px; }
+.ribbon-closed .promo-ribbon { display: none; }
+/* the header is fixed: the mobile menu stays under it, sticky rails and jump links clear it */
+@media (max-width: 900px) {
+    .fh-wrap { width: calc(100% - 24px); }
+    .fh-wrap .floating-header { width: 100%; }
+}
+@media (max-width: 768px) {
+    html:not(.ribbon-closed) .post-hero-section { margin-top: -108px; padding-top: 118px; }
+}
+@media (max-width: 480px) {
+    .promo-ribbon { padding: 0 32px 0 12px; font-size: 0.8rem; }
+    .promo-ribbon-long, .promo-ribbon-get, .promo-ribbon-cta-text { display: none; }
+    .promo-ribbon-cta { margin-left: 6px; }
+}
+@media (max-width: 360px) {
+    .promo-ribbon { justify-content: flex-start; font-size: 0.75rem; }
+    .promo-ribbon-tag { padding: 0 5px; letter-spacing: 0.05em; }
+}
+@media (max-width: 340px) { .promo-ribbon-cta { display: none; } }
+
 /* Subscribe button (shared — used in forms, not header) */
 .btn-subscribe {
     display: inline-flex;
@@ -2404,117 +2447,58 @@ mark {
 }
 
 /* -----------------------------------------------------------------------------
-   25. Footer — purple gradient matching main WizLeads site
+   25. Footer — same as the landing page footer (wizleads-lp footer.php)
    -------------------------------------------------------------------------- */
 .site-footer {
     background: var(--footer-bg);
-    color: #fafafa;
-    padding: 4rem 0 0;
-    margin-top: 0;
+    color: #e2e8f0;
+    padding: 48px 0 32px;
 }
-.footer-grid {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr 1fr;
-    gap: 3rem;
-    padding-bottom: 3rem;
+.site-footer .container { max-width: 1440px; padding: 0 32px; }
+.footer-grid { display: grid; grid-template-columns: 1.6fr 1.3fr repeat(3, 1fr); gap: 40px; }
+.site-footer a { color: rgba(255, 255, 255, 0.5); text-decoration: none; font-size: 0.875rem; transition: color 0.15s; }
+.site-footer a:hover { color: #ffffff; }
+.site-footer h4 { font-size: 0.85rem; font-weight: 600; line-height: 28px; margin-bottom: 12px; color: #e2e8f0; letter-spacing: 0; }
+.site-footer ul { list-style: none; padding: 0; margin: 0; }
+.site-footer li { margin-bottom: 18px; }
+.site-footer li:last-child { margin-bottom: 0; }
+/* each column is a flex column so the last block (social icons, Ask AI) sits on the row's bottom line */
+.footer-grid > div { display: flex; flex-direction: column; }
+.site-footer .footer-logo,
+.site-footer .footer-logo:hover { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 12px; color: #e2e8f0; font-size: 1.25rem; font-weight: 700; line-height: 28px; }
+.footer-logo img { width: 28px; height: 28px; }
+.footer-desc { color: rgba(255, 255, 255, 0.5); font-size: 0.875rem; line-height: 1.6; max-width: 280px; margin: 0; }
+.footer-social { display: flex; margin-top: 16px; }
+.footer-social a + a { margin-left: 12px; }
+.footer-social-rounded { border-radius: 4px; }
+.footer-ai { margin-top: auto; padding-top: 12px; padding-bottom: 4px; }
+.footer-ai-title { font-size: 0.875rem; font-weight: 600; color: #e2e8f0; margin: 0 0 6px; }
+.footer-ai-links { display: grid; grid-template-columns: repeat(5, minmax(0, 32px)); gap: 6px; }
+.site-footer .footer-ai-links a { display: flex; align-items: center; justify-content: center; aspect-ratio: 1; border-radius: 10px; background: rgba(255, 255, 255, 0.08); transition: background 0.15s; }
+.site-footer .footer-ai-links a:hover { background: rgba(255, 255, 255, 0.16); }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 16px 32px; flex-wrap: wrap; margin-top: 36px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.08); background: none; }
+.footer-copy { font-size: 0.875rem; color: rgba(255, 255, 255, 0.5); margin: 0; }
+.footer-legal { display: flex; flex-wrap: wrap; gap: 12px 28px; }
+/* emoji glyphs take the alpha of the faded link colour; keep them at full opacity */
+.footer-emoji { color: #ffffff; }
+@media (max-width: 1239px) {
+    .footer-grid { grid-template-columns: 1.25fr repeat(3, 1fr); }
+    .footer-brand { grid-column: 1 / -1; }
+    /* full-width brand row: Ask AI sits under the social icons, tiles in one row */
+    .footer-brand .footer-ai { margin-top: 24px; padding: 0; }
+    .footer-ai-links { grid-template-columns: repeat(5, 36px); }
 }
-.footer-logo {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: 700;
-    font-size: 1.125rem;
-    color: #ffffff;
-    margin-bottom: 1rem;
+@media (max-width: 1140px) {
+    .footer-bottom { flex-direction: column-reverse; align-items: flex-start; }
+    .footer-legal { gap: 12px 24px; }
 }
-.footer-logo img {
-    width: 24px;
-    height: 24px;
+@media (max-width: 768px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px 24px; }
 }
-.footer-desc {
-    font-size: var(--fs-sm);
-    color: rgba(255,255,255,0.6);
-    line-height: 1.6;
-    max-width: 360px;
-    margin-bottom: 1.5rem;
+@media (max-width: 480px) {
+    .site-footer .container { padding: 0 20px; }
+    .footer-grid { column-gap: 16px; }
 }
-.footer-social {
-    display: flex;
-    gap: 0.75rem;
-}
-.footer-social a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: opacity var(--dur);
-}
-.footer-social a:hover {
-    opacity: 0.8;
-}
-.footer-social img {
-    border-radius: 4px;
-}
-.footer-address {
-    font-size: var(--fs-sm);
-    color: rgba(255,255,255,0.5);
-    font-style: normal;
-    line-height: 1.6;
-}
-.footer-company {
-    font-weight: 600;
-    color: #cbd5e1;
-    margin-bottom: 4px;
-}
-.footer-email {
-    margin-top: 8px;
-}
-.footer-email a {
-    color: rgba(255,255,255,0.5);
-    text-decoration: none;
-    transition: color var(--dur);
-}
-.footer-email a:hover {
-    color: #ffffff;
-}
-.footer-col h4 {
-    font-size: var(--fs-sm);
-    font-weight: 700;
-    color: #ffffff;
-    margin-bottom: 1rem;
-    letter-spacing: 0.02em;
-}
-.footer-col ul {
-    display: flex;
-    flex-direction: column;
-    gap: 0.625rem;
-}
-.footer-col a {
-    font-size: var(--fs-sm);
-    color: rgba(255,255,255,0.6);
-    transition: color var(--dur);
-}
-.footer-col a:hover {
-    color: #ffffff;
-}
-.footer-bottom {
-    background: rgba(0,0,0,0.15);
-    border-top: 1px solid rgba(255,255,255,0.08);
-    padding: 1.25rem 0;
-}
-.footer-bottom p {
-    font-size: var(--fs-xs);
-    color: rgba(255,255,255,0.45);
-    text-align: center;
-}
-.footer-bottom a {
-    color: rgba(255,255,255,0.65);
-    transition: color var(--dur);
-}
-.footer-bottom a:hover {
-    color: #ffffff;
-}
-
-/* Footer responsive — consolidated into section 27 */
 
 /* -----------------------------------------------------------------------------
    26. Ghost Portal / Members Forms
@@ -2659,14 +2643,6 @@ mark {
         gap: 2rem;
     }
 
-    /* Footer */
-    .footer-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 32px;
-    }
-    .footer-brand {
-        grid-column: 1 / -1;
-    }
 }
 
 @media (max-width: 480px) {
@@ -2685,9 +2661,6 @@ mark {
         flex-direction: row;
     }
 
-    .footer-grid {
-        grid-template-columns: 1fr;
-    }
 
     /* Author row — keep horizontal with share icons beside name */
     .post-author-row {
@@ -3092,4 +3065,190 @@ a.kg-btn-accent,
 }
 @media (max-width: 640px) {
     .post-content .wl-cta a.wl-btn { padding: 10px 16px; font-size: 0.85rem; }
+}
+
+/* -----------------------------------------------------------------------------
+   $1 credit pack popup (partials/promo-popup.hbs, logic in theme.js)
+   -------------------------------------------------------------------------- */
+.wlp-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(24, 24, 27, 0.55);
+}
+.wlp-overlay[hidden] { display: none; }
+.wlp-ticket {
+    --wlp-cut: 190px;
+    --wlp-notch: 14px;
+    position: relative;
+    display: grid;
+    grid-template-columns: var(--wlp-cut) 1fr;
+    width: 100%;
+    max-width: 610px;
+    border-radius: 19px;
+    overflow: hidden;
+    font-family: var(--font-body);
+    /* the two notches on the perforation line */
+    -webkit-mask: radial-gradient(circle var(--wlp-notch) at var(--wlp-cut) 0, #0000 97%, #000) top / 100% 51% no-repeat,
+                  radial-gradient(circle var(--wlp-notch) at var(--wlp-cut) 100%, #0000 97%, #000) bottom / 100% 51% no-repeat;
+            mask: radial-gradient(circle var(--wlp-notch) at var(--wlp-cut) 0, #0000 97%, #000) top / 100% 51% no-repeat,
+                  radial-gradient(circle var(--wlp-notch) at var(--wlp-cut) 100%, #0000 97%, #000) bottom / 100% 51% no-repeat;
+}
+.wlp-stub {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 16px;
+    background: #2d1655;
+    color: #d9f99d;
+    text-align: center;
+    border-right: 2px dashed rgba(217, 249, 157, 0.45);
+}
+.wlp-label {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 4px;
+    background: #d9f99d;
+    color: #1a2e05;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    line-height: 1;
+}
+.wlp-price {
+    margin: 12px 0 10px;
+    font-size: 90px;
+    font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: -5px;
+}
+.wlp-brand {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+}
+.wlp-body {
+    position: relative;
+    padding: 33px 35px 31px;
+    background: #ffffff;
+    color: #27272a;
+}
+.wlp-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    color: #52525b;
+    background: #f4f4f5;
+    cursor: pointer;
+}
+.wlp-close:hover { background: #e4e4e7; color: #18181b; }
+.wlp-close svg { width: 13px; height: 13px; }
+.wlp-title {
+    margin: 0 30px 10px 0;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.7px;
+    color: #09090b;
+}
+.wlp-text {
+    margin: 0 0 24px;
+    font-size: 15.25px;
+    line-height: 1.55;
+    color: #52525b;
+}
+.wlp-sub { display: none; }
+.wlp-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 14px 25px;
+    border-radius: 10px;
+    background: var(--purple);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+    transition: background var(--dur);
+}
+.wlp-cta:hover { background: var(--purple-hover); color: #ffffff; }
+.wlp-cta svg { width: 16px; height: 16px; }
+
+/* open/close motion */
+.wlp-overlay {
+    opacity: 0;
+    transition: opacity 0.22s ease;
+}
+.wlp-overlay.is-open { opacity: 1; }
+.wlp-ticket {
+    transform: translateY(14px) scale(0.96);
+    transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.wlp-overlay.is-open .wlp-ticket { transform: none; }
+
+/* phones: a small ticket pinned to the bottom; the page stays readable and scrollable */
+@media (max-width: 600px) {
+    .wlp-overlay {
+        align-items: flex-end;
+        padding: 0 10px 12px;
+        background: transparent;
+        pointer-events: none;
+    }
+    .wlp-ticket {
+        --wlp-cut: 84px;
+        --wlp-notch: 11px;
+        max-width: none;
+        border-radius: 14px;
+        pointer-events: auto;
+        transform: translateY(110%);
+    }
+    .wlp-overlay.is-open .wlp-ticket { transform: none; }
+    .wlp-stub { padding: 12px 6px; }
+    .wlp-label,
+    .wlp-brand,
+    .wlp-text { display: none; }
+    .wlp-price {
+        margin: 0;
+        font-size: 46px;
+        letter-spacing: -2px;
+    }
+    .wlp-body {
+        padding: 14px 14px 14px 16px;
+        border: 1px solid #e5e7eb;
+        border-left: 0;
+        border-radius: 0 14px 14px 0;
+    }
+    .wlp-close { top: 8px; right: 8px; width: 28px; height: 28px; }
+    .wlp-title {
+        margin: 0 30px 0 0;
+        font-size: 16px;
+        letter-spacing: -0.3px;
+    }
+    .wlp-sub {
+        display: block;
+        margin: 4px 30px 0 0;
+        font-size: 12.5px;
+        line-height: 1.4;
+        color: #71717a;
+    }
+    .wlp-cta {
+        margin-top: 10px;
+        padding: 10px 16px;
+        font-size: 13.5px;
+    }
 }

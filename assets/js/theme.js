@@ -296,3 +296,64 @@
         document.cookie = 'wl_source=' + encodeURIComponent(updated) + '; expires=' + exp.toUTCString() + '; path=/; domain=.wizleads.io';
     });
 })();
+
+/* $1 credit pack popup: appears 5 seconds after load, then stays hidden on this
+   browser for 30 days. Closes on the cross, a click outside the ticket, or Esc. */
+(function () {
+    var overlay = document.querySelector('[data-wlp]');
+    if (!overlay) return;
+
+    var KEY = 'wl_popup_1usd_seen';
+    var DAYS = 30;
+    var WINDOW_MS = DAYS * 24 * 60 * 60 * 1000;
+
+    function lastSeen() {
+        try {
+            var v = parseInt(localStorage.getItem(KEY), 10);
+            if (v) return v;
+        } catch (e) {}
+        var m = document.cookie.match(new RegExp('(?:^|; )' + KEY + '=(\\d+)'));
+        return m ? parseInt(m[1], 10) : 0;
+    }
+    function markSeen() {
+        var now = Date.now();
+        try { localStorage.setItem(KEY, String(now)); } catch (e) {}
+        document.cookie = KEY + '=' + now + '; max-age=' + (DAYS * 86400) + '; path=/; SameSite=Lax';
+    }
+
+    if (Date.now() - lastSeen() < WINDOW_MS) return;
+
+    function close() {
+        if (overlay.hidden || !overlay.classList.contains('is-open')) return;
+        overlay.classList.remove('is-open');
+        document.removeEventListener('keydown', onKey);
+        document.removeEventListener('click', onClick, true);
+        setTimeout(function () { overlay.hidden = true; }, 280);
+    }
+    function onKey(e) { if (e.key === 'Escape') close(); }
+    // Listen on the document: on phones the overlay lets taps through to the page
+    function onClick(e) {
+        if (!e.target.closest('.wlp-ticket') || e.target.closest('[data-wlp-close]')) close();
+    }
+
+    setTimeout(function () {
+        overlay.hidden = false;
+        void overlay.offsetWidth;
+        overlay.classList.add('is-open');
+        markSeen();
+        document.addEventListener('keydown', onKey);
+        document.addEventListener('click', onClick, true);
+        var btn = overlay.querySelector('[data-wlp-close]');
+        if (btn) btn.focus({ preventScroll: true });
+    }, 5000);
+})();
+
+/* Offer band in the header: closing it hides it here and on wizleads.io (same key). */
+(function () {
+    var btn = document.querySelector('[data-ribbon-close]');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+        document.documentElement.classList.add('ribbon-closed');
+        try { localStorage.setItem('wl_offer_bf_closed', '1'); } catch (e) {}
+    });
+})();

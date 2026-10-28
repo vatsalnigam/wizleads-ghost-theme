@@ -2,6 +2,7 @@
 <html lang="{{@site.locale}}">
 <head>
     <meta charset="utf-8">
+    <script>try{if(localStorage.getItem("wl_offer_bf_closed"))document.documentElement.classList.add("ribbon-closed")}catch(e){}</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#ffffff">
     <meta name="color-scheme" content="light dark">
@@ -45,6 +46,8 @@
     </main>
 
     {{> "footer"}}
+
+    {{> "promo-popup"}}
 
     <script defer src="{{asset "js/theme.js"}}"></script>
     {{ghost_foot}}

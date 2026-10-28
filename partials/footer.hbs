@@ -2,63 +2,80 @@
     <div class="container">
         <div class="footer-grid">
             <div class="footer-brand">
-                <a href="{{@site.url}}" class="footer-logo">
-                    {{#if @site.logo}}
-                    <img src="{{img_url @site.logo size="xs" format="webp"}}" alt="{{@site.title}}" width="28" height="28" loading="lazy" decoding="async">
-                    {{else}}
-                    <img src="{{asset "icons/favicon.svg"}}" alt="{{@site.title}}" width="28" height="28">
-                    {{/if}}
-                    <span>{{@site.title}}</span>
+                <a href="https://wizleads.io" class="footer-logo">
+                    <img src="{{asset "icons/favicon-white.svg"}}" alt="WizLeads" width="28" height="28" decoding="async">WizLeads
                 </a>
-                <p class="footer-desc">{{@site.description}}</p>
+                <p class="footer-desc">Scrape LinkedIn Sales Navigator leads and find verified B2B emails in minutes. Built for agencies, sales teams, and lead gen pros. No LinkedIn account needed.</p>
                 <div class="footer-social">
-                    <a href="https://www.linkedin.com/in/vatsalnigam/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                        <img src="{{asset "images/logos/linkedin-icon.webp"}}" alt="LinkedIn" width="22" height="22" style="border-radius:4px;" decoding="async">
-                    </a>
-                    <a href="https://www.g2.com/products/wizleads/" target="_blank" rel="noopener noreferrer" aria-label="G2">
-                        <img src="{{asset "images/logos/g2-logo-white.svg"}}" alt="G2" width="22" height="22" decoding="async">
-                    </a>
-                    <a href="https://www.capterra.in/software/1083532/WizLeads" target="_blank" rel="noopener noreferrer" aria-label="Capterra">
-                        <img src="{{asset "images/logos/capterra-logo.svg"}}" alt="Capterra" width="22" height="22" decoding="async">
-                    </a>
-                    <a href="https://chromewebstore.google.com/detail/WizLeads%20Helper/ikiblhaikiofiicnffflljpljojngdjo" target="_blank" rel="noopener noreferrer" aria-label="Chrome Web Store">
-                        <img src="{{asset "images/logos/chrome-webstore.svg"}}" alt="Chrome Web Store" width="22" height="22" decoding="async">
-                    </a>
+                    <a href="https://www.linkedin.com/in/vatsalnigam/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><img class="footer-social-rounded" src="{{asset "images/logos/linkedin-icon.webp"}}" alt="LinkedIn" width="22" height="22" decoding="async"></a>
+                    <a href="https://www.g2.com/products/wizleads/" target="_blank" rel="noopener noreferrer" aria-label="G2"><img src="{{asset "images/logos/g2.svg"}}" alt="G2" width="22" height="22" decoding="async"></a>
+                    <a href="https://www.capterra.in/software/1083532/WizLeads" target="_blank" rel="noopener noreferrer" aria-label="Capterra"><img src="{{asset "images/logos/capterra-logo.svg"}}" alt="Capterra" width="22" height="22" decoding="async"></a>
+                    <a href="https://chromewebstore.google.com/detail/WizLeads%20Helper/ikiblhaikiofiicnffflljpljojngdjo" target="_blank" rel="noopener noreferrer" aria-label="Chrome Web Store"><img src="{{asset "images/logos/chrome-webstore.svg"}}" alt="Chrome Web Store" width="22" height="22" decoding="async"></a>
+                </div>
+                <div class="footer-ai">
+                    <p class="footer-ai-title">Ask AI <span class="footer-emoji" aria-hidden="true">✨</span> about WizLeads</p>
+                    <div class="footer-ai-links">
+                        <a href="https://chatgpt.com/?model=auto&amp;prompt=I%27m%20shortlisting%20tools%20for%20scraping%20LinkedIn%20Sales%20Navigator%20and%20finding%20verified%20B2B%20emails.%20What%20does%20WizLeads%20%28wizleads.io%29%20offer%20for%20scraping%2C%20email%20finding%20and%20email%20verification%2C%20and%20what%20makes%20it%20different%3F" target="_blank" rel="noopener noreferrer nofollow" aria-label="Ask ChatGPT about WizLeads" title="Ask ChatGPT"><img src="{{asset "images/logos/ai/openai.svg"}}" alt="" width="18" height="18" loading="lazy" decoding="async"></a>
+                        <a href="https://www.perplexity.ai/search?q=I%27m%20shortlisting%20tools%20for%20scraping%20LinkedIn%20Sales%20Navigator%20and%20finding%20verified%20B2B%20emails.%20What%20does%20WizLeads%20%28wizleads.io%29%20offer%20for%20scraping%2C%20email%20finding%20and%20email%20verification%2C%20and%20what%20makes%20it%20different%3F" target="_blank" rel="noopener noreferrer nofollow" aria-label="Ask Perplexity about WizLeads" title="Ask Perplexity"><img src="{{asset "images/logos/ai/perplexity.svg"}}" alt="" width="18" height="18" loading="lazy" decoding="async"></a>
+                        <a href="https://www.google.com/search?udm=50&amp;q=I%27m%20shortlisting%20tools%20for%20scraping%20LinkedIn%20Sales%20Navigator%20and%20finding%20verified%20B2B%20emails.%20What%20does%20WizLeads%20%28wizleads.io%29%20offer%20for%20scraping%2C%20email%20finding%20and%20email%20verification%2C%20and%20what%20makes%20it%20different%3F" target="_blank" rel="noopener noreferrer nofollow" aria-label="Ask Google AI Mode about WizLeads" title="Ask Google AI Mode"><img src="{{asset "images/logos/ai/gemini.svg"}}" alt="" width="18" height="18" loading="lazy" decoding="async"></a>
+                        <a href="https://claude.ai/new?q=I%27m%20shortlisting%20tools%20for%20scraping%20LinkedIn%20Sales%20Navigator%20and%20finding%20verified%20B2B%20emails.%20What%20does%20WizLeads%20%28wizleads.io%29%20offer%20for%20scraping%2C%20email%20finding%20and%20email%20verification%2C%20and%20what%20makes%20it%20different%3F" target="_blank" rel="noopener noreferrer nofollow" aria-label="Ask Claude about WizLeads" title="Ask Claude"><img src="{{asset "images/logos/ai/claude.svg"}}" alt="" width="18" height="18" loading="lazy" decoding="async"></a>
+                        <a href="https://grok.com/?q=I%27m%20shortlisting%20tools%20for%20scraping%20LinkedIn%20Sales%20Navigator%20and%20finding%20verified%20B2B%20emails.%20What%20does%20WizLeads%20%28wizleads.io%29%20offer%20for%20scraping%2C%20email%20finding%20and%20email%20verification%2C%20and%20what%20makes%20it%20different%3F&amp;submit=true" target="_blank" rel="noopener noreferrer nofollow" aria-label="Ask Grok about WizLeads" title="Ask Grok"><img src="{{asset "images/logos/ai/grok.svg"}}" alt="" width="18" height="18" loading="lazy" decoding="async"></a>
+                    </div>
                 </div>
             </div>
-            <nav class="footer-col" aria-label="Products">
+            <div>
                 <h4>Products</h4>
                 <ul>
                     <li><a href="https://wizleads.io/api">API Docs</a></li>
                     <li><a href="https://wizleads.io/email-enrichment">Email Enrichment</a></li>
                     <li><a href="https://wizleads.io/email-verification">Email Verification</a></li>
-                    <li><a href="https://wizleads.io/sales-navigator">Sales Navigator Scraper</a></li>
+                    <li><a href="https://wizleads.io/sales-navigator-scraper">Sales Navigator Lead Scraper</a></li>
+                    <li><a href="https://wizleads.io/sales-navigator-scraper">Sales Navigator Account Scraper</a></li>
+                    <li><a href="https://chromewebstore.google.com/detail/WizLeads%20Helper/ikiblhaikiofiicnffflljpljojngdjo" target="_blank" rel="noopener noreferrer">Chrome Extension</a></li>
                 </ul>
-            </nav>
-            <nav class="footer-col" aria-label="Resources">
-                <h4>Resources</h4>
+            </div>
+            <div>
+                <h4>Sales Navigator Scraper</h4>
                 <ul>
-                    {{navigation type="secondary"}}
-                    <li><a href="https://help.wizleads.io" target="_blank" rel="noopener noreferrer">Help Center</a></li>
-                    <li><a href="https://wizleads.io/privacy">Privacy Policy</a></li>
-                    <li><a href="https://wizleads.io/terms">Terms of Service</a></li>
-                    <li><a href="https://wizleads.io/gdpr-compliant-linkedin-scraper">GDPR Compliance</a></li>
+                    <li><a href="https://wizleads.io/wizleads-vs-apify" title="WizLeads vs Apify">Apify alternative</a></li>
+                    <li><a href="https://wizleads.io/wizleads-vs-evaboot" title="WizLeads vs Evaboot">Evaboot alternative</a></li>
+                    <li><a href="https://wizleads.io/wizleads-vs-lobstr" title="WizLeads vs Lobstr">Lobstr alternative</a></li>
+                    <li><a href="https://wizleads.io/wizleads-vs-phantombuster" title="WizLeads vs PhantomBuster">PhantomBuster alternative</a></li>
+                    <li><a href="https://wizleads.io/wizleads-vs-scrupp" title="WizLeads vs Scrupp">Scrupp alternative</a></li>
+                    <li><a href="https://wizleads.io/wizleads-vs-vayne" title="WizLeads vs Vayne">Vayne alternative</a></li>
                 </ul>
-            </nav>
-            <div class="footer-col">
-                <h4>Contact</h4>
-                <address class="footer-address">
-                    <p class="footer-company">Wiz Labs LLC</p>
-                    <p>30 N Gould Street, Ste R.</p>
-                    <p>Sheridan, Wyoming 82801</p>
-                    <p class="footer-email"><a href="mailto:support@wizleads.io">support@wizleads.io</a></p>
-                </address>
+            </div>
+            <div>
+                <h4>Email Enrichment Tools</h4>
+                <ul>
+                    <li><a href="https://wizleads.io/wizleads-vs-findymail" title="WizLeads vs Findymail">Findymail alternative</a></li>
+                    <li><a href="https://wizleads.io/wizleads-vs-icypeas" title="WizLeads vs IcyPeas">IcyPeas alternative</a></li>
+                    <li><a href="https://wizleads.io/wizleads-vs-leadmagic" title="WizLeads vs LeadMagic">LeadMagic alternative</a></li>
+                    <li><a href="https://wizleads.io/wizleads-vs-prospeo" title="WizLeads vs Prospeo">Prospeo alternative</a></li>
+                    <li><a href="https://wizleads.io/wizleads-vs-kitt" title="WizLeads vs TryKitt">TryKitt alternative</a></li>
+                    <li><a href="https://wizleads.io/wizleads-vs-wiza" title="WizLeads vs Wiza">Wiza alternative</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Email Verification Tools</h4>
+                <ul>
+                    <li><a href="https://wizleads.io/wizleads-vs-debounce" title="WizLeads vs DeBounce">DeBounce alternative</a></li>
+                    <li><a href="https://wizleads.io/wizleads-vs-millionverifier" title="WizLeads vs MillionVerifier">MillionVerifier alternative</a></li>
+                    <li><a href="https://wizleads.io/wizleads-vs-neverbounce" title="WizLeads vs NeverBounce">NeverBounce alternative</a></li>
+                    <li><a href="https://wizleads.io/wizleads-vs-zerobounce" title="WizLeads vs ZeroBounce">ZeroBounce alternative</a></li>
+                </ul>
             </div>
         </div>
-    </div>
-    <div class="footer-bottom">
-        <div class="container">
-            <p>&copy; {{date format="YYYY"}} {{@site.title}}. All rights reserved.</p>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; {{date format="YYYY"}} WizLeads. All rights reserved.</p>
+            <nav class="footer-legal" aria-label="Programs, support and legal">
+                <a href="https://wizleads.io/creators-program"><span class="footer-emoji" aria-hidden="true">🎁</span> Creators Program</a>
+                <a href="https://wizleads.io/affiliate-program">Affiliate Program</a>
+                <a href="https://help.wizleads.io" target="_blank" rel="noopener noreferrer">Help Center</a>
+                <a href="https://wizleads.io/privacy">Privacy Policy</a>
+                <a href="https://wizleads.io/terms">Terms of Service</a>
+                <a href="https://wizleads.io/gdpr-compliant-linkedin-scraper">GDPR Compliance</a>
+            </nav>
         </div>
     </div>
 </footer>
