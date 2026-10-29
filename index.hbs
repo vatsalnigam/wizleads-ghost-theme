@@ -53,6 +53,7 @@
     {{#match @custom.show_featured_posts}}
     <section class="featured-section">
         <div class="container">
+            <h2 class="section-heading">Fresh Reads</h2>
             <div class="featured-grid">
                 {{#get "posts" limit="1" include="tags,authors"}}
                 {{#foreach posts}}
