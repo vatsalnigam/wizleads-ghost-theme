@@ -922,6 +922,34 @@ html:not(.ribbon-closed) .fh-mobile-menu { top: 100px; }
     }
 }
 
+/* Pinned posts (featured in Ghost admin), two up above the latest posts */
+.pinned-section {
+    padding: 0 0 3.5rem;
+}
+.pinned-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+}
+.pinned-card .post-card-image img {
+    aspect-ratio: 1200 / 630;
+    object-fit: cover;
+}
+.pinned-card .post-card-title {
+    font-size: 28px;
+    line-height: 1.25;
+}
+.pinned-card .post-card-excerpt {
+    font-size: 17px;
+    line-height: 1.55;
+}
+@media (max-width: 768px) {
+    .pinned-section { padding-bottom: 2rem; }
+    .pinned-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .pinned-card .post-card-title { font-size: 24px; }
+    .pinned-card .post-card-excerpt { font-size: 15px; }
+}
+
 /* -----------------------------------------------------------------------------
    9. Section Heading
    -------------------------------------------------------------------------- */
