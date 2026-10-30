@@ -3280,3 +3280,24 @@ a.kg-btn-accent,
         font-size: 13.5px;
     }
 }
+
+/* ===== tawk.to chat widget: open/close motion =====
+   tawk writes "transform: none !important" inline on the chat frame, so the frame itself
+   cannot be animated. Its wrapper can: it is pinned over the viewport (so the fixed frame
+   keeps its place inside it) and grows out of the launcher's corner with Intercom's
+   overshoot, then shrinks away on close. Colours and the frame size are in index.js. */
+@keyframes wlChatOpen { from { opacity: 0; transform: scale(0); } 28% { opacity: 1; } to { opacity: 1; transform: scale(1); } }
+@keyframes wlChatClose { from { opacity: 1; transform: scale(1); } to { opacity: 0; transform: scale(0.5); } }
+#max-widget { position: fixed; inset: 0; z-index: 1000003; pointer-events: none; transform-origin: calc(100% - 44px) calc(100% - 84px); }
+#max-widget > iframe { pointer-events: auto; }
+/* Phones: tawk pins the frame full-screen with inline !important styles. The wrapper is
+   made the frame's containing block (any transform does that for fixed children) and sized
+   as a floating card above the launcher, so the full-screen frame fills only the card. */
+@media (max-width: 767px) {
+    #max-widget { inset: auto 12px 84px 12px; height: min(640px, calc(100dvh - 112px)); border-radius: 24px; overflow: hidden; transform: translateZ(0); transform-origin: calc(100% - 32px) 100%; box-shadow: rgba(9, 14, 21, 0.16) 0px 5px 40px 0px; }
+}
+/* tawk builds the frame on first use and shows it before marking it open; keep it unseen until then */
+#max-widget:not(:has(> iframe.open)):not(:has(> iframe.closed)) { visibility: hidden; }
+#max-widget:has(> iframe.open) { animation: wlChatOpen 0.3s cubic-bezier(0, 1.2, 1, 1); }
+#max-widget:has(> iframe.closed) { animation: wlChatClose 0.2s cubic-bezier(0.4, 0, 1, 1) forwards; }
+@media (prefers-reduced-motion: reduce) { #max-widget:has(> iframe.open), #max-widget:has(> iframe.closed) { animation: none; } }

@@ -50,6 +50,20 @@
     {{> "promo-popup"}}
 
     <script defer src="{{asset "js/theme.js"}}"></script>
+    {{!-- tawk.to chat, same widget and restyle as wizleads.io (landing page index.js).
+          The restyle must run before the loader so its Tawk_API.onLoad hook is set. --}}
+    <script src="{{asset "js/tawk-widget.js"}}"></script>
+    <script>
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = 'https://embed.tawk.to/68fb67e4edce2c1952697025/1j8b0rlse';
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', '*');
+        s0.parentNode.insertBefore(s1, s0);
+    })();
+    </script>
     {{ghost_foot}}
 </body>
 </html>

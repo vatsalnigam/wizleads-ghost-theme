@@ -323,8 +323,26 @@
 
     if (Date.now() - lastSeen() < WINDOW_MS) return;
 
+    // The tawk.to chat button sits over the ticket's corner on phones, so it is
+    // hidden while the ticket is open. tawk.to adds these functions once it loads.
+    function chat(fn) {
+        var api = window.Tawk_API;
+        if (api && typeof api[fn] === 'function') {
+            try { return api[fn](); } catch (e) {}
+        }
+    }
+    // If tawk.to finishes loading while the ticket is up, hide the button then.
+    // Keeps the chat restyle's own onLoad (tawk-widget.js) running first.
+    window.Tawk_API = window.Tawk_API || {};
+    var chatOnLoad = window.Tawk_API.onLoad;
+    window.Tawk_API.onLoad = function () {
+        if (typeof chatOnLoad === 'function') chatOnLoad.apply(this, arguments);
+        if (overlay.classList.contains('is-open')) chat('hideWidget');
+    };
+
     function close() {
         if (overlay.hidden || !overlay.classList.contains('is-open')) return;
+        chat('showWidget');
         overlay.classList.remove('is-open');
         document.removeEventListener('keydown', onKey);
         document.removeEventListener('click', onClick, true);
@@ -337,6 +355,9 @@
     }
 
     setTimeout(function () {
+        // Don't interrupt an open chat; the ticket isn't marked seen, so a later page shows it
+        if (chat('isChatMaximized') === true) return;
+        chat('hideWidget');
         overlay.hidden = false;
         void overlay.offsetWidth;
         overlay.classList.add('is-open');
