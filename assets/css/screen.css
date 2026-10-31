@@ -187,6 +187,13 @@ p { text-wrap: pretty; }
     white-space: nowrap;
 }
 .fh-logo img { width: 26px; height: 26px; }
+/* The wrap is positioned at left: 50%, so its auto width stops short of the
+   pill's content and flexbox squeezed the logo into the Products link.
+   Size it to its content; below 1100px the menu collapses instead. */
+@media (min-width: 1100px) {
+    .fh-wrap { width: max-content; }
+    .fh-logo { flex-shrink: 0; }
+}
 .fh-nav {
     display: flex;
     align-items: center;
@@ -392,7 +399,7 @@ p { text-wrap: pretty; }
 /* Push content below fixed header */
 main, #main { padding-top: 80px; }
 
-@media (max-width: 900px) {
+@media (max-width: 1099px) {
     .fh-nav { display: none; }
     .fh-actions { display: none; }
     .fh-mobile-cta {
@@ -457,7 +464,7 @@ html:not(.ribbon-closed) .post-hero-section { margin-top: -108px; padding-top: 1
 html:not(.ribbon-closed) .fh-mobile-menu { top: 100px; }
 .ribbon-closed .promo-ribbon { display: none; }
 /* the header is fixed: the mobile menu stays under it, sticky rails and jump links clear it */
-@media (max-width: 900px) {
+@media (max-width: 1099px) {
     .fh-wrap { width: calc(100% - 24px); }
     .fh-wrap .floating-header { width: 100%; }
 }
