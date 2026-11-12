@@ -297,13 +297,13 @@
     });
 })();
 
-/* $1 credit pack popup: appears 5 seconds after load, then stays hidden on this
+/* Black Friday follower-scraping popup: appears 5 seconds after load, then stays hidden on this
    browser for 30 days. Closes on the cross, a click outside the ticket, or Esc. */
 (function () {
     var overlay = document.querySelector('[data-wlp]');
     if (!overlay) return;
 
-    var KEY = 'wl_popup_1usd_seen';
+    var KEY = 'wl_popup_bf49_seen'; // new key per offer, so the $1 popup's viewers see this one
     var DAYS = 30;
     var WINDOW_MS = DAYS * 24 * 60 * 60 * 1000;
 
@@ -375,6 +375,6 @@
     if (!btn) return;
     btn.addEventListener('click', function () {
         document.documentElement.classList.add('ribbon-closed');
-        try { localStorage.setItem('wl_offer_bf_closed', '1'); } catch (e) {}
+        try { localStorage.setItem('wl_offer_bf49_closed', '1'); } catch (e) {}
     });
 })();
