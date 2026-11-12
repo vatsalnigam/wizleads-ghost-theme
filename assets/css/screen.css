@@ -447,21 +447,19 @@ main, #main { padding-top: 80px; }
 html:not(.ribbon-closed) .fh-wrap { background: #ffffff; border-radius: 26px; border: 1px solid rgba(0, 0, 0, 0.06); box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04); }
 html:not(.ribbon-closed) .fh-wrap .promo-ribbon { border-radius: 25px 25px 0 0; }
 html:not(.ribbon-closed) .fh-wrap .floating-header { border: none; box-shadow: none; border-radius: 0 0 25px 25px; }
-.promo-ribbon { position: relative; display: flex; align-items: center; justify-content: center; height: 28px; padding: 0 40px; background: var(--purple); color: #ffffff; font-size: 0.8125rem; }
+:root { --wl-rb: 28px; } /* ribbon height; everything under the header moves down by it */
+.promo-ribbon { position: relative; display: flex; align-items: center; justify-content: center; height: var(--wl-rb); padding: 0 40px; background: var(--purple); color: #ffffff; font-size: 0.8125rem; }
 .promo-ribbon-link { display: inline-flex; align-items: center; gap: 4px; color: #ffffff; text-decoration: none; white-space: nowrap; }
-.promo-ribbon-link strong { font-weight: 700; margin-left: 3px; }
+.promo-ribbon-text, .promo-ribbon-link strong { font-weight: 700; }
 .promo-ribbon-tag { display: inline-flex; align-items: center; height: 18px; padding: 0 6px; margin-right: 4px; border-radius: 4px; background: #111111; color: #ffffff; font-size: 0.625rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
-.promo-ribbon-cta { display: inline-flex; align-items: center; gap: 4px; margin-left: 10px; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
-.promo-ribbon-cta svg { transition: transform 0.15s; }
-.promo-ribbon-link:hover .promo-ribbon-cta svg { transform: translateX(3px); }
 .promo-ribbon-close { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: flex; padding: 4px; background: none; border: none; color: rgba(255, 255, 255, 0.75); cursor: pointer; }
 .promo-ribbon-close:hover { color: #ffffff; }
 .fh-nav a.fh-creators, .fh-mobile-menu a.fh-creators { font-weight: 700; }
 /* while the band shows, everything under the header moves down by its 28px */
 html:not(.ribbon-closed) main,
-html:not(.ribbon-closed) #main { padding-top: 108px; }
-html:not(.ribbon-closed) .post-hero-section { margin-top: -108px; padding-top: 148px; }
-html:not(.ribbon-closed) .fh-mobile-menu { top: 100px; }
+html:not(.ribbon-closed) #main { padding-top: calc(80px + var(--wl-rb)); }
+html:not(.ribbon-closed) .post-hero-section { margin-top: calc(-80px - var(--wl-rb)); padding-top: calc(120px + var(--wl-rb)); }
+html:not(.ribbon-closed) .fh-mobile-menu { top: calc(72px + var(--wl-rb)); }
 .ribbon-closed .promo-ribbon { display: none; }
 /* the header is fixed: the mobile menu stays under it, sticky rails and jump links clear it */
 @media (max-width: 1099px) {
@@ -469,26 +467,28 @@ html:not(.ribbon-closed) .fh-mobile-menu { top: 100px; }
     .fh-wrap .floating-header { width: 100%; }
 }
 @media (max-width: 768px) {
-    html:not(.ribbon-closed) .post-hero-section { margin-top: -108px; padding-top: 118px; }
+    html:not(.ribbon-closed) .post-hero-section { margin-top: calc(-80px - var(--wl-rb)); padding-top: calc(90px + var(--wl-rb)); }
 }
-/* the full sentence needs about 830px: narrower screens drop "Scrape your competitors'",
-   then the Black Friday tag, then the "See deal" words (rule at 480px) */
-@media (max-width: 900px) {
-    .promo-ribbon-long { display: none; }
-}
-@media (max-width: 600px) {
-    .promo-ribbon-tag { display: none; }
+/* the bold sentence fits on one line from 720px; below that it wraps to two lines, with the
+   badge flowing inline at the start, and the ribbon grows to 44px (--wl-rb moves the page
+   content down with it) */
+@media (max-width: 719px) {
+    :root { --wl-rb: 44px; }
+    .promo-ribbon-link { display: block; white-space: normal; text-align: center; line-height: 1.3; }
+    .promo-ribbon-tag { vertical-align: 1px; }
 }
 @media (max-width: 480px) {
-    .promo-ribbon { padding: 0 32px 0 12px; font-size: 0.8rem; }
-    .promo-ribbon-cta-text, .promo-ribbon-starting { display: none; }
-    .promo-ribbon-cta { margin-left: 6px; }
+    .promo-ribbon { padding: 0 38px 0 12px; font-size: 0.8rem; }
 }
-@media (max-width: 360px) {
-    .promo-ribbon { justify-content: flex-start; font-size: 0.75rem; }
-    .promo-ribbon-tag { padding: 0 5px; letter-spacing: 0.05em; }
+/* phones: a smaller size keeps the whole sentence on two lines down to 360px */
+@media (max-width: 420px) {
+    .promo-ribbon { font-size: 0.72rem; padding: 0 38px 0 10px; }
+    .promo-ribbon-tag { height: 16px; padding: 0 4px; margin-right: 2px; font-size: 0.56rem; letter-spacing: 0.05em; }
 }
-@media (max-width: 340px) { .promo-ribbon-cta { display: none; } }
+/* narrower still, it takes three lines */
+@media (max-width: 350px) {
+    :root { --wl-rb: 58px; }
+}
 
 /* Subscribe button (shared — used in forms, not header) */
 .btn-subscribe {
